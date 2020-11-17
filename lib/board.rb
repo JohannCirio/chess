@@ -16,7 +16,7 @@ class ChessBoard
     end
   end
 
-  def print_alternative_board
+  def print_board
     puts '╔═╤═╤═╤═╤═╤═╤═╤═╗'
     print_line(7)
     puts '╟─┼─┼─┼─┼─┼─┼─┼─╢'
@@ -42,7 +42,7 @@ class ChessBoard
     if line_number.odd?
       8.times do |i|
         if @matrix[line_number][i] == 0
-          i.even? ? (print "░".on_white) : (print " ")
+          i.even? ? (print '░'.on_white) : (print ' ')
         else
           print @matrix[line_number][i].token
         end
@@ -51,7 +51,7 @@ class ChessBoard
     else
       8.times do |i|
         if @matrix[line_number][i] == 0
-          i.even? ? (print " ") : (print "░".on_white)
+          i.even? ? (print " ") : (print '░'.on_white)
         else
           print @matrix[line_number][i].token
         end
@@ -59,15 +59,14 @@ class ChessBoard
       end
     end
     puts "\b║#{line_number}"
-
   end
 end
 
-#puts '║░│ │░│ │░│ │░│ ║'
+    #puts '║░│ │░│ │░│ │░│ ║'
     #puts '║♖│♘│♗│♕│♔│♗│♘│♖║'
     #puts '║♙│♙│♙│♙│♙│♙│♙│♙║'
     #puts '║♜│♞│♝│♛│♚│♝│♞│♜║'
     #puts '║♟│♟│♟│♟│♟│♟│♟│♟║'
 
 board = ChessBoard.new
-board.print_alternative_board
+board.print_board
