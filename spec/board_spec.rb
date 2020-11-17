@@ -20,7 +20,21 @@ describe ChessBoard do
       expect(all_zeros).to be true
     end
   end
-  describe '#print_board' do
-    
+  describe '#change_tile_content' do
+    context 'correctly adds a White Queen to the H1 position of the board' do
+      it 'its color is white' do
+        white_queen = double('Queen', color: 'white', token: '♚')
+        @board.change_tile_content(white_queen, 0, 7)
+        tile_content = @board.matrix[0][7]
+        expect(tile_content.color).to eql('white')
+      end
+      it 'its token is a ♚' do
+        white_queen = double('Queen', color: 'white', token: '♚')
+        @board.change_tile_content(white_queen, 0, 7)
+        tile_content = @board.matrix[0][7]
+        expect(tile_content.token).to eql('♚')
+      end
+    end
   end
+      
 end
