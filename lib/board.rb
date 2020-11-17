@@ -45,19 +45,19 @@ class ChessBoard
     print '║'
     if line_number.odd?
       8.times do |i|
-        if @matrix[line_number][i] == 0
+        if @matrix[i][line_number] == 0
           i.even? ? (print '░'.on_white) : (print ' ')
         else
-          print @matrix[line_number][i].token
+          print @matrix[i][line_number].token
         end
         print '│'
       end
     else
       8.times do |i|
-        if @matrix[line_number][i] == 0
+        if @matrix[i][line_number] == 0
           i.even? ? (print " ") : (print '░'.on_white)
         else
-          print @matrix[line_number][i].token
+          print @matrix[i][line_number].token
         end
         print '│'
       end
@@ -66,13 +66,15 @@ class ChessBoard
   end
 end
 
-
-
-    #puts '║░│ │░│ │░│ │░│ ║'
-    #puts '║♖│♘│♗│♕│♔│♗│♘│♖║'
-    #puts '║♙│♙│♙│♙│♙│♙│♙│♙║'
-    #puts '║♜│♞│♝│♛│♚│♝│♞│♜║'
-    #puts '║♟│♟│♟│♟│♟│♟│♟│♟║'
+# puts '║░│ │░│ │░│ │░│ ║'
+# puts '║♖│♘│♗│♕│♔│♗│♘│♖║'
+# puts '║♙│♙│♙│♙│♙│♙│♙│♙║'
+# puts '║♜│♞│♝│♛│♚│♝│♞│♜║'
+# puts '║♟│♟│♟│♟│♟│♟│♟│♟║'
 
 board = ChessBoard.new
+white_pawn = Pawn.new('white')
+board.change_tile_content(white_pawn, 0, 7)
+board.change_tile_content(white_pawn, 1, 3)
 board.print_board
+
