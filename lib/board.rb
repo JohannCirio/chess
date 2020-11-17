@@ -18,6 +18,9 @@ class ChessBoard
     end
   end
 
+  def set_starting_positions
+  end
+
   def print_board
     puts '╔═╤═╤═╤═╤═╤═╤═╤═╗'
     print_line(7)
@@ -65,7 +68,7 @@ class ChessBoard
         print '│'
       end
     end
-    puts "\b║#{line_number}"
+    puts "\b║#{(line_number - 8).abs}"
   end
 end
 
