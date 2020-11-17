@@ -37,6 +37,10 @@ class ChessBoard
     puts ' h g f e d c b a'
   end
 
+  def change_tile_content(piece, column, row)
+    @matrix[column][row] = piece
+  end
+
   def print_line(line_number)
     print '║'
     if line_number.odd?
@@ -61,6 +65,8 @@ class ChessBoard
     puts "\b║#{line_number}"
   end
 end
+
+
 
     #puts '║░│ │░│ │░│ │░│ ║'
     #puts '║♖│♘│♗│♕│♔│♗│♘│♖║'
