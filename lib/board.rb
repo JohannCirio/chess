@@ -1,5 +1,7 @@
 # ./lib/board.rb
 require 'colorize'
+require './lib/pieces.rb'
+
 # generates the game board and manipulates it's contents
 class ChessBoard
   attr_reader :matrix
@@ -34,6 +36,7 @@ class ChessBoard
     puts '╟─┼─┼─┼─┼─┼─┼─┼─╢'
     print_line(0)
     puts '╚═╧═╧═╧═╧═╧═╧═╧═╝'
+    puts ' 0 1 2 3 4 5 6 7'
     puts ' h g f e d c b a'
   end
 
@@ -73,8 +76,5 @@ end
 # puts '║♟│♟│♟│♟│♟│♟│♟│♟║'
 
 board = ChessBoard.new
-white_pawn = Pawn.new('white')
-board.change_tile_content(white_pawn, 0, 7)
-board.change_tile_content(white_pawn, 1, 3)
 board.print_board
 
