@@ -1,3 +1,5 @@
+# ./spec/board_spec.rb
+
 require './lib/board'
 
 describe ChessBoard do
@@ -12,5 +14,13 @@ describe ChessBoard do
       right_num_of_columns = columns.all? { |column| column.size == 8 }
       expect(right_num_of_columns).to be true
     end
+    it 'starts with zeros in all tiles' do
+      @board.matrix
+      all_zeros = @board.matrix.all? { |row| row.all?(0) }
+      expect(all_zeros).to be true
+    end
+  end
+  describe '#print_board' do
+    
   end
 end
