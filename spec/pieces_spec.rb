@@ -112,7 +112,7 @@ describe Tower do
 
     it 'its token is ""' do
       token = @tower.token
-      expect(token).to eql('♝')
+      expect(token).to eql('♜')
     end
 
     it 'its initial column is H(0)' do
@@ -137,7 +137,7 @@ describe King do
 
     it 'its token is ""' do
       token = @king.token
-      expect(token).to eql('♝')
+      expect(token).to eql('♛')
     end
 
     it 'its initial column is H(0)' do
