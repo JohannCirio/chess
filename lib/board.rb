@@ -83,7 +83,7 @@ class ChessBoard
     print_line(0)
     puts '╚═╧═╧═╧═╧═╧═╧═╧═╝'
     puts ' 0 1 2 3 4 5 6 7'
-    puts ' h g f e d c b a'
+    puts ' a b c d e f g h'
   end
 
   def change_tile_content(piece, column, row)
@@ -111,7 +111,7 @@ class ChessBoard
         print '│'
       end
     end
-    puts "\b║#{(line_number - 8).abs}"
+    puts "\b║#{(line_number + 1)}"
   end
 end
 
