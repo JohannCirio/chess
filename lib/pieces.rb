@@ -2,10 +2,14 @@
 class Pawn
   attr_reader :color, :token, :current_column, :current_row
   def initialize(color, column, row)
-    @token = '♟'
     @color = color
+    choose_token(color)
     @current_column = column
     @current_row = row
+  end
+
+  def choose_token(color)
+    @token = color == 'white' ? '♟' : '♙'
   end
 end
 
@@ -13,10 +17,14 @@ end
 class Knight
   attr_reader :color, :token, :current_column, :current_row
   def initialize(color, column, row)
-    @token = '♞'
     @color = color
+    choose_token(color)
     @current_column = column
     @current_row = row
+  end
+
+  def choose_token(color)
+    @token = color == 'white' ? '♞' : '♘'
   end
 end
 
@@ -24,10 +32,14 @@ end
 class Queen
   attr_reader :color, :token, :current_column, :current_row
   def initialize(color, column, row)
-    @token = '♚'
     @color = color
+    choose_token(color)
     @current_column = column
     @current_row = row
+  end
+
+  def choose_token(color)
+    @token = color == 'white' ? '♚' : '♔'
   end
 end
 
@@ -35,10 +47,14 @@ end
 class Bishop
   attr_reader :color, :token, :current_column, :current_row
   def initialize(color, column, row)
-    @token = '♝'
     @color = color
+    choose_token(color)
     @current_column = column
     @current_row = row
+  end
+
+  def choose_token(color)
+    @token = color == 'white' ? '♝' : '♗'
   end
 end
 
@@ -46,10 +62,14 @@ end
 class Tower
   attr_reader :color, :token, :current_column, :current_row
   def initialize(color, column, row)
-    @token = '♝'
     @color = color
+    choose_token(color)
     @current_column = column
     @current_row = row
+  end
+
+  def choose_token(color)
+    @token = color == 'white' ? '♜' : '♖'
   end
 end
 
@@ -57,9 +77,13 @@ end
 class King
   attr_reader :color, :token, :current_column, :current_row
   def initialize(color, column, row)
-    @token = '♝'
     @color = color
+    choose_token(color)
     @current_column = column
     @current_row = row
+  end
+
+  def choose_token(color)
+    @token = (color == 'white' ? '♛' : '♕')
   end
 end
