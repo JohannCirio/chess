@@ -7,6 +7,7 @@ class ChessBoard
   attr_reader :matrix
   def initialize
     generate_board_matrix
+    set_starting_positions
   end
 
   def generate_board_matrix
@@ -19,6 +20,48 @@ class ChessBoard
   end
 
   def set_starting_positions
+    set_paws
+    set_towers
+    set_knights
+    set_bishops
+    set_kings
+    set_queens
+  end
+
+  def set_paws
+    8.times { |i| change_tile_content(Pawn.new('white', i, 1), i, 1) }
+    8.times { |i| change_tile_content(Pawn.new('black', i, 6), i, 6) }
+  end
+
+  def set_towers
+    change_tile_content(Tower.new('white', 0, 0), 0, 0)
+    change_tile_content(Tower.new('white', 7, 0), 7, 0)
+    change_tile_content(Tower.new('black', 0, 7), 0, 7)
+    change_tile_content(Tower.new('black', 7, 7), 7, 7)
+  end
+
+  def set_knights
+    change_tile_content(Knight.new('white', 1, 0), 1, 0)
+    change_tile_content(Knight.new('white', 6, 0), 6, 0)
+    change_tile_content(Knight.new('black', 1, 7), 1, 7)
+    change_tile_content(Knight.new('black', 6, 7), 6, 7)
+  end
+
+  def set_bishops
+    change_tile_content(Bishop.new('white', 2, 0), 2, 0)
+    change_tile_content(Bishop.new('white', 5, 0), 5, 0)
+    change_tile_content(Bishop.new('black', 2, 7), 2, 7)
+    change_tile_content(Bishop.new('black', 5, 7), 5, 7)
+  end
+
+  def set_kings
+    change_tile_content(King.new('white', 3, 0), 3, 0)
+    change_tile_content(King.new('black', 3, 7), 3, 7)
+  end
+
+  def set_queens
+    change_tile_content(Queen.new('white', 4, 0), 4, 0)
+    change_tile_content(Queen.new('black', 4, 7), 4, 7)
   end
 
   def print_board
@@ -80,4 +123,3 @@ end
 
 board = ChessBoard.new
 board.print_board
-
