@@ -25,6 +25,35 @@ describe Pawn do
       expect(row).to eql(1)
     end
   end
+
+  xcontext 'white movement, a2 pawn ([0][1])' do
+    before { @board = Board.new }
+    it 'can move to board[0][2] when the tile is empty' do
+      pawn = @board[0][1]
+      contain_move = pawn.normal_moves(@board).any? {|move| move = [0, 2]}
+      expect(contain_move).to be true
+    end
+
+    it "can't move to board[0][2] when the tile is occupied" do
+      pawn = @board[0][1]
+      @board.change_tile_content(Pawn.new('black', 0, 2), 0, 2)
+      contain_move = pawn.normal_moves(@board).any? {|move| move = [0, 2]}
+      expect(contain_move).to be false
+    end
+
+    it "can move to board[0][3] when it has not moved yet" do
+      pawn = @board[0][1]
+      contain_move = pawn.normal_moves(@board).any? {|move| move = [0, 3]}
+      expect(contain_move).to be true
+    end
+
+    it "can't move to board[0][3] when it has already moved" do
+      pawn = @board[0][1]
+      pawn.not_moved = false
+      contain_move = pawn.normal_moves(@board).any? {|move| move = [0, 3]}
+      expect(contain_move).to be false
+    end
+  end
 end
 
 describe Knight do
